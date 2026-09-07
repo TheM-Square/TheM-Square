@@ -1,84 +1,250 @@
-
-<!-- Header -->
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&pause=1800&color=58A6FF&center=true&vCenter=true&width=620&lines=Hi%2C+I'm+Manas+%E2%80%94+ChemE+%C3%97+ML;Second-year+at+NIT+Raipur;Building+at+the+intersection+of+chem+%26+code;Open+to+research+%26+internship+opportunities)](https://git.io/typing-svg)
+<img src="./assets/profile-banner.svg" alt="Manas Mahajan — Chemical Engineering × Computation" width="100%" />
 
 <br/>
 
-<sub><sup>C H E M E &nbsp; × &nbsp; C O M P U T A T I O N</sup></sub>
-
-<br/>
-
-![NIT Raipur](https://img.shields.io/badge/NIT_Raipur-B.Tech_ChE_'28-161b22?style=flat-square&labelColor=161b22&color=161b22&logoColor=58a6ff)
-![Scientific Computing](https://img.shields.io/badge/Scientific_Computing-161b22?style=flat-square&labelColor=161b22&color=161b22)
-![Open to Internships](https://img.shields.io/badge/Open_to_Internships-%233fb950?style=flat-square&labelColor=161b22&color=161b22)
+[![GitHub](https://img.shields.io/badge/GitHub-TheM--Square-0D1117?style=for-the-badge&logo=github&logoColor=F0F6FC)](https://github.com/TheM-Square)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Manas_Mahajan-0D1117?style=for-the-badge&logo=linkedin&logoColor=58A6FF)](https://linkedin.com/in/manas-mahajan-41ab8b327)
+[![Email](https://img.shields.io/badge/Email-Contact-0D1117?style=for-the-badge&logo=gmail&logoColor=EA4335)](mailto:mmahajan046.btech2024@che.nitrr.ac.in)
 
 </div>
 
+<br/>
+
+## `> whoami`
+
+I’m a **Chemical Engineering undergraduate at NIT Raipur** building computational tools for engineering problems.
+
+My work sits at the intersection of **process engineering, numerical methods, scientific Python, and machine learning** — from thermodynamic equilibrium and distillation to heat-transfer simulation and data-driven anomaly detection.
+
+```text
+        PHYSICS
+           │
+           ▼
+   mathematical model
+           │
+           ▼
+   numerical methods
+           │
+           ├──────────────┐
+           ▼              ▼
+       simulation         data
+           │              │
+           └──────┬───────┘
+                  ▼
+            ML / analysis
+                  │
+                  ▼
+          engineering insight
+```
+
+> **Current direction:** computational chemical engineering, process modeling & simulation, and ML methods that remain grounded in physical understanding.
+
 ---
 
-## `// about`
+## `> selected-work`
 
-Second-year Chemical Engineer at **NIT Raipur** applying computation to real engineering problems.
-I build Python tools for **VLE modeling**, **heat conduction simulation**, and **numerical methods** —
-currently exploring where physics-based models meet machine learning.
+### 01 · Vapor–Liquid Equilibrium
 
-- Bridging ChemE domain knowledge with data-driven methods
-- Interested in process simulation, surrogate modeling, and scientific ML
-- Member of **AIChE** · SIH 2024 participant
+**[VLE--Modeling](https://github.com/TheM-Square/VLE--Modeling)** · `Python` `NumPy` `SciPy` `Matplotlib`
 
----
+A from-scratch binary VLE model covering **Antoine vapor-pressure calculations, Raoult’s Law, Margules activity coefficients, and numerical bubble-point solving**.
 
-## `// projects`
-
-| Project | Description | Stack |
+| Model | System | Output |
 |---|---|---|
-| [`VLE-modeling`](https://github.com/TheM-Square/VLE-modeling) | Vapor-liquid equilibrium using Raoult's Law + NRTL with T-xy/P-xy phase diagrams | Python · NumPy · Matplotlib |
-| [`heat-conduction-sim`](https://github.com/TheM-Square/heat-conduction-sim) | Transient 2D heat conduction solver with FDM and animated heatmaps | Python · SciPy · Matplotlib |
-| [`numerical-methods-CSTR`](https://github.com/TheM-Square/numerical-methods-CSTR) | Euler, RK4, shooting method for CSTR dynamics | Python · NumPy |
-| [`CSTR-surrogate-ML`](https://github.com/TheM-Square) *(in progress)* | Physics-informed ML surrogate model for reactor design optimization | Python · Scikit-learn |
+| Ideal | Benzene–Toluene | T–xy / x–y |
+| Non-ideal | Ethanol–Water | T–xy / x–y |
+| Activity model | Margules | γ₁, γ₂ |
+| Solver | Brent root-finding | Bubble-point T |
+
+<img src="https://raw.githubusercontent.com/TheM-Square/VLE--Modeling/main/vle_plots.png" alt="VLE phase diagrams" width="780" />
 
 ---
 
-## `// skills`
+### 02 · Transient Heat-Conduction Solver
 
-```fsharp
-Languages   →  Python  ·  C++  ·  SQL
-Libraries   →  NumPy  ·  Pandas  ·  Scikit-learn  ·  SciPy  ·  Matplotlib
-Domain      →  Process Simulation  ·  VLE  ·  Heat Transfer  ·  Reaction Engineering
-Exploring   →  Physics-Informed ML  ·  Surrogate Modeling
+**[heat-conduction](https://github.com/TheM-Square/heat-conduction)** · `Python` `NumPy` `SciPy` `Matplotlib`
+
+A numerical heat-transfer model using the **explicit finite-difference method** for transient conduction, with both constant-wall-temperature and convective boundary conditions.
+
+```text
+heat equation → spatial discretisation → time marching
+      │                                  │
+      └───────────────┬──────────────────┘
+                      ▼
+             stability / CFL check
+                      │
+                      ▼
+            numerical vs analytical
+```
+
+The repository also examines the **Fourier-number stability limit** and compares the numerical solution with the Fourier-series analytical solution.
+
+<img src="https://raw.githubusercontent.com/TheM-Square/heat-conduction/main/heat_conduction_plots.png" alt="Heat conduction simulation results" width="780" />
+
+---
+
+### 03 · CSTR Equilibrium Solver
+
+**[cstr-solver](https://github.com/TheM-Square/cstr-solver)** · `Python` `NumPy` `Matplotlib`
+
+A steady-state CSTR mole-balance problem formulated as a root-finding task and solved **from scratch** with three classical methods:
+
+`Bisection` → `Newton–Raphson` → `Secant`
+
+The project compares convergence behaviour and makes the numerical trade-offs visible rather than hiding them behind a library call.
+
+<img src="https://raw.githubusercontent.com/TheM-Square/cstr-solver/main/CSTR%20PLOT.png" alt="CSTR convergence comparison" width="780" />
+
+---
+
+### 04 · Supply-Chain Anomaly Detection
+
+**Smart India Hackathon 2026 · Team ZeroDay** · `XGBoost` `SHAP` `SQLite`
+
+A hybrid anomaly/fraud detection pipeline built around **machine learning + hard-logic rules**.
+
+```text
+shipment / invoice / route data
+              │
+              ▼
+       feature engineering
+              │
+       ┌──────┴──────┐
+       ▼             ▼
+   ML scoring     rule engine
+       │             │
+       └──────┬──────┘
+              ▼
+        risk score 0–100
+              │
+              ▼
+      SHAP / why flagged
+              │
+              ▼
+          SQLite logs
+```
+
+Engineered signals around **delivery delay, route deviation, invoice mismatch, and customer/carrier behaviour**, then merged model and rule outputs into an interpretable risk score.
+
+---
+
+## `> toolbox`
+
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=python,cpp,mysql,git,jupyter" alt="Languages and tools" />
+
+<br/><br/>
+
+<img src="https://img.shields.io/badge/NumPy-0D1117?style=flat-square&logo=numpy&logoColor=4DABCF" />
+<img src="https://img.shields.io/badge/Pandas-0D1117?style=flat-square&logo=pandas&logoColor=150458" />
+<img src="https://img.shields.io/badge/SciPy-0D1117?style=flat-square&logo=scipy&logoColor=8CAAE6" />
+<img src="https://img.shields.io/badge/Scikit--learn-0D1117?style=flat-square&logo=scikitlearn&logoColor=F7931E" />
+<img src="https://img.shields.io/badge/XGBoost-0D1117?style=flat-square&logo=xgboost&logoColor=3FB950" />
+<img src="https://img.shields.io/badge/SHAP-0D1117?style=flat-square&logoColor=58A6FF" />
+<img src="https://img.shields.io/badge/CatBoost-0D1117?style=flat-square&logoColor=58A6FF" />
+
+<br/>
+
+<img src="https://img.shields.io/badge/Aspen_Plus-0D1117?style=flat-square&logoColor=58A6FF" />
+<img src="https://img.shields.io/badge/DWSIM-0D1117?style=flat-square&logoColor=58A6FF" />
+<img src="https://img.shields.io/badge/MATLAB-0D1117?style=flat-square&logoColor=58A6FF" />
+<img src="https://img.shields.io/badge/Excel-0D1117?style=flat-square&logo=microsoftexcel&logoColor=217346" />
+
+</div>
+
+<br/>
+
+| Layer | Focus |
+|---|---|
+| **Programming** | Python · C++ · SQL |
+| **Scientific computing** | NumPy · SciPy · Pandas · Matplotlib |
+| **ML** | Scikit-learn · XGBoost · CatBoost · SHAP |
+| **Engineering** | VLE · Heat Transfer · Reaction Engineering · Process Simulation |
+| **Methods** | Root-finding · ODE solving · Regression · Parameter estimation · Error / convergence analysis |
+
+---
+
+## `> experience`
+
+### Nuvoco Vistas Corp Ltd. · Industrial Intern
+
+`June 2026 · 3 weeks`
+
+Exposure to **ABB DCS-based centralized process control**, plant-wide monitoring across raw mill / kiln / cement mill circuits, and process-level heat & mass balances through the **preheater → precalciner → rotary kiln → grate cooler** chain.
+
+Also worked around **raw-mix design, LSF / SM / AM targets, XRF-based QA, IS-code compliance, Aspen Plus, and Excel process-data analysis**.
+
+---
+
+## `> things-i-care-about`
+
+```text
+┌─────────────────────────────────────────────────────────┐
+│  PROCESS MODELING                                       │
+│  thermodynamics · phase equilibrium · reactor models   │
+├─────────────────────────────────────────────────────────┤
+│  NUMERICAL COMPUTATION                                  │
+│  root finding · ODEs · FDM · convergence · validation  │
+├─────────────────────────────────────────────────────────┤
+│  MACHINE LEARNING                                       │
+│  prediction · anomaly detection · explainability      │
+├─────────────────────────────────────────────────────────┤
+│  SCIENTIFIC ML                                          │
+│  surrogate models · physics-informed methods          │
+└─────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## `// github stats`
+## `> github telemetry`
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=TheM-Square&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=3fb950&text_color=c9d1d9&rank_icon=github" />
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=TheM-Square&show_icons=true&hide_border=true&bg_color=0D1117&title_color=58A6FF&icon_color=3FB950&text_color=C9D1D9&rank_icon=github&include_all_commits=true" />
 &nbsp;&nbsp;
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=TheM-Square&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=6" />
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=TheM-Square&layout=compact&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&langs_count=6" />
 
 <br/><br/>
 
-[![GitHub Streak](https://streak-stats.demolab.com?user=TheM-Square&theme=github-dark-blue&hide_border=true&background=0d1117&ring=58a6ff&fire=f78166&currStreakLabel=58a6ff&font=Fira+Code)](https://git.io/streak-stats)
+<img src="https://streak-stats.demolab.com?user=TheM-Square&theme=github-dark-blue&hide_border=true&background=0D1117&ring=58A6FF&fire=F78166&currStreakLabel=58A6FF&font=JetBrains%20Mono" />
+
+<br/><br/>
+
+<img src="https://github-profile-trophy.vercel.app/?username=TheM-Square&theme=darkhub&no-frame=true&no-bg=true&margin-w=8&column=6" alt="GitHub trophies" />
 
 </div>
 
 ---
 
-## `// connect`
+## `> now`
+
+```text
+[████████████████████░░░░░░░░░░]  computational ChemE
+[██████████████████░░░░░░░░░░░░]  process simulation
+[████████████████░░░░░░░░░░░░░░]  machine learning
+[██████████████░░░░░░░░░░░░░░░░]  scientific ML
+```
+
+Currently exploring **surrogate modeling, physics-informed ML, model reduction, and optimization for chemical-process systems**.
+
+---
+
+## `> connect`
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/manas-mahajan-41ab8b327)
-&nbsp;
-[![Email](https://img.shields.io/badge/Email-mmahajan046.btech2024%40che.nitrr.ac.in-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mmahajan046.btech2024@che.nitrr.ac.in)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0D1117?style=for-the-badge&logo=linkedin&logoColor=58A6FF)](https://linkedin.com/in/manas-mahajan-41ab8b327)
+[![Email](https://img.shields.io/badge/Email-Say_Hi-0D1117?style=for-the-badge&logo=gmail&logoColor=EA4335)](mailto:mmahajan046.btech2024@che.nitrr.ac.in)
 
 <br/><br/>
 
-<img src="https://komarev.com/ghpvc/?username=TheM-Square&color=58a6ff&style=flat-square&label=profile+views" />
+<img src="https://komarev.com/ghpvc/?username=TheM-Square&color=58A6FF&style=flat-square&label=profile+views" />
+
+<br/><br/>
+
+<sub><i>build the model · test the assumptions · understand the result</i></sub>
 
 </div>
-
